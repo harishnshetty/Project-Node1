@@ -25,5 +25,11 @@ npm run build'''
                }
         }
         
+
+        stage('sendin email notification') {
+            steps {
+                emailext body: '', subject: 'tested and depoyed', to: 'harishn662@gmail.com'
+               }
+        }
     }
 }
