@@ -1,16 +1,12 @@
-# Use Node.js LTS version
-FROM node:lts-alpine3.20
+# Use lightweight Nginx base image
+FROM nginx:alpine
 
-# Create app directory
-WORKDIR /usr/src/app
+# Copy built React app (from pipeline) into Nginx public folder
+COPY dist/ /usr/share/nginx/html
 
-# Copy package files and install dependencies
-COPY package*.json ./
-RUN npm install
+# Optional: custom Nginx config for SPA routing
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy source code
-COPY . .
+EXPOSE 80
 
-# Expose app port and run tests
-EXPOSE 3000
-CMD [ "npm", "test" ]
+CMD ["nginx", "-g", "daemon off;"]
