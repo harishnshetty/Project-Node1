@@ -1,0 +1,15 @@
+
+{
+  "name": "nodejs-test-app",
+  "version": "1.0.0",
+  "description": "Sample Node.js app with test",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "^10.0.0",
+    "chai": "^4.3.0"
+  }
+}
