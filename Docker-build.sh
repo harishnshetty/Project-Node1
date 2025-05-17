@@ -9,15 +9,15 @@ if [ "$(docker ps -aq -f name=react)" ]; then
 fi
 
 # Remove previous image if it exists
-if docker images | grep -q hello; then
+if docker images | grep -q react; then
     echo "Removing existing image..."
-    docker rmi hello:v1 || true
+    docker rmi react:v1 || true
 fi
 
 # Build the new image
 echo "Building new Docker image..."
-docker build -t hello:v1 .
+docker build -t react:v1 .
 
 # Run the container
 echo "Running new Docker container..."
-docker run -d -p 9003:8080 --name hello hello:v1
+docker run -d -p 9004:8080 --name react react:v1
