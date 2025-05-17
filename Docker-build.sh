@@ -20,4 +20,4 @@ docker build -t react:v1 .
 
 # Run the container
 echo "Running new Docker container..."
-docker run -d -p 9004:8080 --name react react:v1
+docker run -d -p 9004:80 --name react react:v1
