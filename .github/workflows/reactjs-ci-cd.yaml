@@ -1,0 +1,16 @@
+name: ReactJS CI CD
+on: workflow_dispatch
+jobs:
+    build_and_deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Code Checkout
+              uses: actions/checkout@v3
+            - name: Set Node Version
+              uses: actions/setup-node@v4
+              with:
+                node-version: "18"
+            - name: Install Dependencies
+              run: npm install
+            - name: Test the code
+              run: npm test
